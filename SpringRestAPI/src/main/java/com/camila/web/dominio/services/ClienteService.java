@@ -58,7 +58,23 @@ public class ClienteService {
 	}
 	
 	
-	//GET CADASTRAR
+	
+	
+	//PUT
+	public Cliente atualiza (Cliente cliente) {
+		
+		
+		return clienteRepo.save(cliente);
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	//GET
 	public List<Cliente> lista (){
 		
 		return clienteRepo.findAll();
