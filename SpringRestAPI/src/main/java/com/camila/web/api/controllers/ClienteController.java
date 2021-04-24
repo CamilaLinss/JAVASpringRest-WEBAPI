@@ -1,8 +1,11 @@
 package com.camila.web.api.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +31,15 @@ public class ClienteController {
 	
 	
 	
+	@GetMapping
+	public List<Cliente> clientes (){
+		
+		return clienteService.lista();
+		
+		
+	} 
+	
+	
 	
 	
 	@PostMapping
@@ -35,13 +47,14 @@ public class ClienteController {
 	public Cliente cadastrar(@RequestBody Cliente cliente) {
 		
 		
-		
 		return clienteService.cadastrar(cliente);
 		
-		
-		
-		
+			
 	}
+	
+	
+	
+	
 	
 	
 	

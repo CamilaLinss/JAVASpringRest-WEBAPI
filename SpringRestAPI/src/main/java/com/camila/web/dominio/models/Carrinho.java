@@ -3,12 +3,16 @@ package com.camila.web.dominio.models;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -37,8 +41,18 @@ public class Carrinho {
 	private BigDecimal valorTotal;
 	
 	//Foreign key
-	@ManyToMany
-	private List<Produto> produtos = new ArrayList<>();
+	//@OneToMany(mappedBy = "carrinhos")
+	//private Optional<List<Produto>> produtos;
+
+	
+	
+	//public Optional<List<Produto>> getProdutos() {
+	//	return produtos;
+//	}
+
+//	public void setProdutos(Optional<List<Produto>> produtos) {
+	//	this.produtos = produtos;
+	//}
 
 	
 	
@@ -77,13 +91,7 @@ public class Carrinho {
 		this.valorTotal = valorTotal;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
 	
 	
 	

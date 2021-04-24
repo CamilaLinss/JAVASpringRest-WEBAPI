@@ -1,5 +1,8 @@
 package com.camila.web.dominio.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,8 @@ public class ClienteService {
 	
 	//CRUD
 	
+	
+	//POST CADASTRAR
 	public Cliente cadastrar(Cliente cliente) {
 
 		Carrinho car = new Carrinho();
@@ -38,10 +43,10 @@ public class ClienteService {
 		car.setCliente(cliente);
 		car.setItemTotal(0);
 		//car.setValorTotal();
-		//car.setProdutos(produto[0]);
+		//car.setProdutos(Optional.ofNullable(null));
 		
+		carRepo.save(car);
 		
-		criar(car);
 		
 		
 		
@@ -53,20 +58,25 @@ public class ClienteService {
 	}
 	
 	
+	//GET CADASTRAR
+	public List<Cliente> lista (){
+		
+		return clienteRepo.findAll();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
 	//CARRINHO
 	
-	public Carrinho criar(Carrinho car) {
-		
-		
-	return carRepo.save(car);
-		
-		
-		
-		
-	}
 	
 	
 	
