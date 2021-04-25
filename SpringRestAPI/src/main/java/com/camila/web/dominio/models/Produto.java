@@ -44,18 +44,11 @@ public class Produto {
 	
 	
 	//Foreign key
-//	@ManyToOne
-	//private Optional<List<Carrinho>> carrinhos;
+	//@ManyToOne
+	//private List<Carrinho> carrinhos;
 
 	
-	
-	//public Optional<List<Carrinho>> getCarrinhos() {
-	//	return carrinhos;
-	//}
-	//public void setCarrinhos(Optional<List<Carrinho>> carrinhos) {
-	//	this.carrinhos = carrinhos;
-	//}
-	
+
 	
 	
 	

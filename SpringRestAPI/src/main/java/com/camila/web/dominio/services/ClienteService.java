@@ -33,29 +33,28 @@ public class ClienteService {
 	//POST CADASTRAR
 	public Cliente cadastrar(Cliente cliente) {
 
+		
 		Carrinho car = new Carrinho();
-		
-		//Produto prod = new Produto();
-		
-		
-		
-		
+	
 		car.setCliente(cliente);
 		car.setItemTotal(0);
-		//car.setValorTotal();
+		car.setValorTotal(0.0);
 		//car.setProdutos(Optional.ofNullable(null));
+		
 		
 		carRepo.save(car);
 		
 		
 		
-		
 		cliente.setCarrinho(car);
+		//cliente.setCompras(List<0>);
 		
 		return clienteRepo.save(cliente);
 
 		
 	}
+	
+	
 	
 	
 	

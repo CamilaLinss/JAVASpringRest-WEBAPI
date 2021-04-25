@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,34 +26,28 @@ public class Carrinho {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 	
 	
 	//Foreign key
 	@NotNull
-	@OneToOne
+	//cascade=CascadeType.PERSIST aqui em peço para que assim que o cliente for salvo o carrinho também seja junto
+	//Solução para um erro que tive ao criar o cliente e seu carrinho(outra entidade) no mesmo metodo
+	@OneToOne(cascade=CascadeType.PERSIST)
 	private Cliente cliente;
+	
 	
 	@NotNull
 	private int itemTotal;
 	
 	@NotNull
-	private BigDecimal valorTotal;
+	private Double valorTotal;
 	
 	//Foreign key
-	//@OneToMany(mappedBy = "carrinhos")
-	//private Optional<List<Produto>> produtos;
+	@ManyToMany
+	private List<Produto> produtos = new ArrayList<>();
 
 	
-	
-	//public Optional<List<Produto>> getProdutos() {
-	//	return produtos;
-//	}
-
-//	public void setProdutos(Optional<List<Produto>> produtos) {
-	//	this.produtos = produtos;
-	//}
 
 	
 	
@@ -83,11 +78,11 @@ public class Carrinho {
 		this.itemTotal = itemTotal;
 	}
 
-	public BigDecimal getValorTotal() {
+	public Double getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(BigDecimal valorTotal) {
+	public void setValorTotal(Double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 
